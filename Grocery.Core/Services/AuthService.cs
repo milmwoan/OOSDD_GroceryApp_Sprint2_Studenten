@@ -1,6 +1,7 @@
 ﻿using Grocery.Core.Helpers;
 using Grocery.Core.Interfaces.Services;
 using Grocery.Core.Models;
+//using WinRT;
 
 namespace Grocery.Core.Services
 {
@@ -16,7 +17,18 @@ namespace Grocery.Core.Services
             //Vraag de klantgegevens [Client] op die je zoekt met het opgegeven emailadres
             //Als je een klant gevonden hebt controleer dan of het password matcht --> PasswordHelper.VerifyPassword(password, passwordFromClient)
             //Als alles klopt dan klantgegveens teruggeven, anders null
-            return null;
+           var client = _clientService.Get(email); 
+            if (client != null && PasswordHelper.VerifyPassword(password, client._password))
+            {
+                return client;
+               
+            }
+            else {
+                
+                return null;
+
+            }
+             
         }
     }
 }
