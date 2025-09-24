@@ -20,7 +20,7 @@ namespace Grocery.App
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
-
+            //testing maui
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
